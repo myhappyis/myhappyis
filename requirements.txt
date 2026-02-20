@@ -26,6 +26,9 @@ httpx==0.28.0
 # Logging
 structlog==24.4.0
 
+# Security
+bcrypt==4.2.0
+
 # Utilities
 tiktoken==0.8.0
 langchain-text-splitters==0.3.2
