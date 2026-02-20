@@ -1,0 +1,31 @@
+# Web Framework
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-multipart==0.0.12
+
+# LINE Bot SDK
+line-bot-sdk==3.14.0
+
+# Anthropic Claude SDK
+anthropic==0.40.0
+
+# Vector Database (RAG)
+chromadb==0.5.23
+
+# Database ORM
+sqlalchemy==2.0.36
+aiosqlite==0.20.0
+
+# Environment & Config
+python-dotenv==1.0.1
+pydantic-settings==2.6.1
+
+# HTTP Client
+httpx==0.28.0
+
+# Logging
+structlog==24.4.0
+
+# Utilities
+tiktoken==0.8.0
+langchain-text-splitters==0.3.2

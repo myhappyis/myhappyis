@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  chatbot:
+    build: .
+    container_name: hr_chatbot
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=production
+      - DATABASE_URL=sqlite+aiosqlite:///./data/chatbot.db
+      - CHROMA_PERSIST_DIR=./data/chroma_db
+    env_file:
+      - .env                   # LINE_CHANNEL_SECRET, LINE_CHANNEL_ACCESS_TOKEN, ANTHROPIC_API_KEY
+    volumes:
+      - chatbot_data:/app/data  # Persist SQLite DB + ChromaDB
+    healthcheck:
+      test: ["CMD", "python", "-c", "import httpx; httpx.get('http://localhost:8000/health').raise_for_status()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  chatbot_data:
+    driver: local
